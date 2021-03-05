@@ -68,6 +68,6 @@ export    PATH=${PATH}:${NODEBREW_HOME}/bin
 
 alias    mv='mv -i'
 alias    cp='cp -i'
-alias    ll='ls -Alt | more -R'
+alias    ll='ls -Alt | more'
 # alias    cd='pushd \!*'
 alias    dirs='dirs -v'
