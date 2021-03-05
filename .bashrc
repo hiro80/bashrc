@@ -3,11 +3,8 @@
 # jan 2021
 # last modified in mar 2021
 
-# bash major version
-major_ver=${BASH_VERSINFO[0]}
-
 # '.' must be included for use of directory completion without 'cd'.
-export PATH=/bin:/usr/bin:/usr/local/bin:/opt/X11/bin:/sbin:/usr/sbin:.
+export PATH=${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:.
 umask  022
 
 if [ $UID -eq 0 ]
@@ -36,19 +33,21 @@ bind '"\C-p": history-search-backward'
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
-# autoexpand with tab
-if [ major_ver == "4" ]
+
+# bash major version
+if [ ${BASH_VERSINFO[0]} -eq 4 ]
 then
     # cd with dir path
     shopt -s autocd
     shopt -s direxpand
 fi
+
+# autoexpand with tab
 bind "TAB:menu-complete"
 bind 'set match-hidden-files off'
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 
-export    LC_ALL=ja_JP.UTF-8
 export    LANG=ja          # For history-search working well.
 export    PERL_BADLAN=0    # For not printing Perl warning.
 export    BLOCKSIZE=K
