@@ -48,7 +48,7 @@ bind 'set match-hidden-files off'
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 
-export    LANG=ja          # For history-search working well.
+export    LANG=en_US.utf8
 export    PERL_BADLAN=0    # For not printing Perl warning.
 export    BLOCKSIZE=K
 export    CLICOLOR         # To colorize ls
