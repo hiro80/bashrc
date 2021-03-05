@@ -56,9 +56,6 @@ bind "set menu-complete-display-prefix on"
 export    LANG=en_US.utf8
 export    PERL_BADLAN=0    # For not printing Perl warning.
 export    BLOCKSIZE=M
-export    CLICOLOR         # To colorize ls
-export    CLICOLOR_FORCE=1 # To colorize ls redirection output
-export    LSCOLORS="Axfxxxxxbxhehebxbxbxbx"
 export    LS_COLORS="no=00:fi=00:di=01:ln=35:pi=00:so=00:bd=37;40:cd=37;44:ex=31"
 
 # For pyenv
@@ -79,6 +76,8 @@ export    PATH=${PATH}:${NODEBREW_HOME}/bin
 
 alias    mv='mv -i'
 alias    cp='cp -i'
-alias    ll='ls -Alt | more'
+alias    ls='ls --color=auto'
+alias    ll='ls -Alt --time-style=long-iso --color=auto'
 # alias    cd='pushd \!*'
 alias    dirs='dirs -v'
+alias    grep='grep --color=auto'
