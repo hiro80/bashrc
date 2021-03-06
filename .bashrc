@@ -7,6 +7,11 @@
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:.
 umask  022
 
+if [ -z "$PS1" ]
+then
+    exit 0
+fi
+
 if [ $UID -eq 0 ]
 then
     # Root user
