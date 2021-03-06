@@ -9,7 +9,7 @@ umask  022
 
 if [ -z "$PS1" ]
 then
-    exit 0
+    return
 fi
 
 if [ $UID -eq 0 ]
