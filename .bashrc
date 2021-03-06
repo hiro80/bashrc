@@ -17,13 +17,13 @@ then
     # Root user
     export PS1="\[\e[;31m\][\w]\[\e[m\] "
 else
-    if [[ -z "${REMOTEHOST}" ]]
+    if [[ -z "${SSH_CLIENT}" ]]
     then
         # other users
         export PS1="\[\e[;36m\][\w]\[\e[m\] "
     else
         # remote host
-        export PS1="\[\e[%m: ;30m\][\w]\[\e[m\] "
+        export PS1="\[\e[;37m\][\h: \w]\[\e[m\] "
     fi
 fi
 
