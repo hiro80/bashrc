@@ -23,7 +23,7 @@ else
         export PS1="\[\e[;36m\][\w]\[\e[m\] "
     else
         # remote host
-        export PS1="\[\e[;37m\][\h: \w]\[\e[m\] "
+        export PS1="\[\e[;1m\][\h: \w]\[\e[m\] "
     fi
 fi
 
