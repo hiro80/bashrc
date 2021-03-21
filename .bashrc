@@ -88,8 +88,14 @@ esac
 
 alias    mv='mv -i'
 alias    cp='cp -i'
-alias    ls='ls --color=auto'
-alias    ll='ls -Alt --time-style=long-iso --color=auto'
 # alias    cd='pushd \!*'
 alias    dirs='dirs -v'
-alias    grep='grep --color=auto'
+if [ ${OSTYPE} == "darwin" ]
+then
+    # macOS
+    alias    ll='ls -AGlt | more -R'
+else
+    alias    ls='ls --color=auto'
+    alias    ll='ls -Alt --time-style=long-iso --color=auto'
+    alias    grep='grep --color=auto'
+fi
