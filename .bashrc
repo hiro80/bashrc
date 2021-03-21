@@ -15,15 +15,15 @@ fi
 if [ $UID -eq 0 ]
 then
     # Root user
-    export PS1="\[\e[;31m\][\w]\[\e[m\] "
+    PS1="\[\e[;31m\][\w]\[\e[m\] "
 else
     if [[ -z "${SSH_CLIENT}" ]]
     then
         # other users
-        export PS1="\[\e[;36m\][\w]\[\e[m\] "
+        PS1="\[\e[;36m\][\w]\[\e[m\] "
     else
         # remote host
-        export PS1="\[\e[;1m\][\h: \w]\[\e[m\] "
+        PS1="\[\e[;1m\][\h: \w]\[\e[m\] "
     fi
 fi
 
@@ -34,8 +34,8 @@ HISTCONTROL=ignoredups
 shopt -s histappend
 
 # incremental history search
-bind '"\C-n": history-search-forward'
 bind '"\C-p": history-search-backward'
+bind '"\C-n": history-search-forward'
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
@@ -73,6 +73,13 @@ fi
 export    NODEBREW_HOME=/usr/local/var/nodebrew/current
 export    NODEBREW_ROOT=/usr/local/var/nodebrew
 export    PATH=${PATH}:${NODEBREW_HOME}/bin
+
+# Set xterm title
+case $TERM in
+    xterm*)
+        PROMPT_COMMAND='echo -ne "\033]0;`hostname -s`\007"'
+        ;;
+esac
 
 # complete    cd='p/1/d/'
 # complete    emacs  'p/*/t/'
